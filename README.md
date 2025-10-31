@@ -29,7 +29,7 @@ git clone https://github.com/YanxiangDu2023/Yemen-Geo-Demography-Dashboard.git
 cd Yemen-Geo-Demography-Dashboard
 This will download the full project, including the data files (data/), main scripts, and visualization assets.
 
-2️⃣ Start a Local Server
+### 2️⃣ Start a Local Server
 You can open the dashboard directly in a browser by double-clicking index.html,
 but using a local server ensures charts and GeoJSON files load correctly.
 
@@ -41,7 +41,7 @@ python3 -m http.server 8080
 Then visit http://localhost:8080 in your browser.
 You should see an interactive map of Yemen with population data loaded.
 
-3️⃣ Explore the Dashboard
+### 3️⃣ Explore the Dashboard
 Once it loads:
 
 🖱️ Click on a district (ADM3) to view its population pyramid
@@ -55,13 +55,13 @@ Once it loads:
 
 “This region shows an aging trend, with elderly population (60+) projected to rise by 45% by 2030.”
 
-🎥 Demo
+## 🎥 Demo
 ![2025-10-3113 57 31-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/47373965-75a4-4156-ad6d-f4b9353894c9)
 
 
 The demo above shows how the dashboard dynamically updates as users select different regions and years.
 
-🧱 Project Structure
+## 🧱 Project Structure
 Folder / File	Description
 index.html	Main entry point for the dashboard UI
 script.js	Core logic for data loading, map rendering, and chart updates

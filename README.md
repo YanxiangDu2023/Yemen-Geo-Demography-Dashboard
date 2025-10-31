@@ -1,59 +1,89 @@
 # 🗺️ Yemen Geo-Demography Dashboard
 
-This project visualizes Yemen’s population structure and demographic trends in an interactive way.  
-It uses **Leaflet maps** and **Chart.js charts** to explore population changes between 2015 and 2030 at the district (ADM3) level.
+This project is an interactive visualization tool that presents Yemen’s population structure and demographic changes from 2015 to 2030.  
+It integrates **Leaflet.js** for spatial visualization and **Chart.js** for population analytics, providing an intuitive way to explore regional population dynamics.
 
-The dashboard also includes an **AI-based policy insight** module that summarizes each region’s demographic trend — for example, aging population, youth expansion, or labor-age balance — and provides short policy suggestions accordingly.
-
----
-
-## 🌍 What the Project Does
-
-- Displays Yemen’s population by administrative region (ADM3)
-- Shows population pyramids for each area and year
-- Tracks demographic transitions from 2015 to 2030
-- Automatically generates short policy insights based on population structure
+In addition, the dashboard includes an **AI-based policy insight engine** that automatically summarizes key demographic patterns—such as population aging, youth expansion, or labor-age dominance—and generates concise policy suggestions to support data-driven decision-making.
 
 ---
 
-## 🧭 How to Run the Dashboard
+## 🌍 Project Overview
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/YanxiangDu2023/Yemen-Geo-Demography-Dashboard.git
-   cd Yemen-Geo-Demography-Dashboard
-Start a local server
-You can either:
+The Yemen Geo-Demography Dashboard enables users to:
+- 🗺️ **Visualize population distribution** across Yemen’s administrative divisions (ADM3 level)
+- 📊 **Examine population pyramids** for selected regions and years
+- 📈 **Track time-series changes** in population size and age composition from 2015 to 2030
+- 💡 **Generate AI-based policy insights** summarizing demographic opportunities or challenges for each region
 
-Double-click index.html to open it directly in your browser, or
+Each region’s visualization combines **map, chart, and text layers** to present a holistic demographic profile.
 
-Run a simple local server:
+---
+
+## 🧭 How to Initialize and Run the Project
+
+### 1️⃣ Clone the Repository
+
+Open your terminal and run:
+```bash
+git clone https://github.com/YanxiangDu2023/Yemen-Geo-Demography-Dashboard.git
+cd Yemen-Geo-Demography-Dashboard
+This will download the full project, including the data files (data/), main scripts, and visualization assets.
+
+2️⃣ Start a Local Server
+You can open the dashboard directly in a browser by double-clicking index.html,
+but using a local server ensures charts and GeoJSON files load correctly.
+
+Run this command in the project root:
 
 bash
 Copy code
 python3 -m http.server 8080
-Then visit: http://localhost:8080
+Then visit http://localhost:8080 in your browser.
+You should see an interactive map of Yemen with population data loaded.
 
-Explore
+3️⃣ Explore the Dashboard
+Once it loads:
 
-Click on a district to view its population pyramid
+🖱️ Click on a district (ADM3) to view its population pyramid
+→ The chart shows gender distribution across six age groups (pre-school, school-age, university, working-age, retirement, and 80+).
 
-Switch between years to see how age groups change over time
+📅 Use the year selector to switch between years (2015–2030)
+→ All visualizations update dynamically to show demographic trends.
 
-Read the generated policy insights below the charts
+💬 Read the policy insight text under the charts
+→ It automatically analyzes ratios and growth rates to summarize key findings, e.g.:
+
+“This region shows an aging trend, with elderly population (60+) projected to rise by 45% by 2030.”
 
 🎥 Demo
+![2025-10-3113 57 31-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/47373965-75a4-4156-ad6d-f4b9353894c9)
 
-![2025-10-3113 57 31-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/2656938f-6a7d-4893-b2cb-7b2ec8289c95)
 
-🧱 Built With
-Leaflet.js — for interactive maps
+The demo above shows how the dashboard dynamically updates as users select different regions and years.
 
-Chart.js — for dynamic charts
+🧱 Project Structure
+Folder / File	Description
+index.html	Main entry point for the dashboard UI
+script.js	Core logic for data loading, map rendering, and chart updates
+style.css	ESCWA-style layout and visual theme
+data/yemen_adm3_population.geojson	Spatial boundary file (district-level polygons)
+data/adm3_timeseries.json	Preprocessed population dataset (2015–2030 by ADM3)
+data/adm3_population_timeseries.csv	Raw population data for CSV-based analysis
+assets/ (optional)	Placeholder for icons or other static images
 
-GeoJSON / CSV — population and boundary data
+⚙️ Technical Stack
+Leaflet.js — for interactive map rendering and region-level event handling
 
-JavaScript, HTML, CSS — for layout and logic
+Chart.js — for age-structure and time-series visualizations
+
+GeoJSON / CSV — for demographic and boundary datasets
+
+Vanilla JavaScript (ES6) — for front-end logic and data binding
+
+HTML + CSS — for layout and style (inspired by UN/ESCWA dashboard design)
+
+🧩 Future Improvements
+
 
 ✨ Author
 Yanxiang Du

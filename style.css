@@ -1,0 +1,236 @@
+
+:root{
+  /* Palette
+  --un-blue: #0b77b6;     /
+  --escwa-blue: #4aa9df;   /* ESCWA  */
+  --sky: #9ed4f2;          
+  --ink: #163047;          
+  --bg: #f5f8fb;          
+  --panel: #ffffff;        
+  --muted: #6b8195;        
+  --ok: #52c41a;
+  --warn: #faad14;
+  --danger: #ff7875;
+
+  --radius-xl: 16px;
+  --radius-md: 10px;
+  --shadow-sm: 0 6px 18px rgba(11,119,182,.08);
+  --shadow-md: 0 10px 24px rgba(11,119,182,.12);
+}
+
+/* Global */
+*{ box-sizing: border-box; }
+html, body { height: 100%; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  display: flex; flex-direction: column;
+}
+
+/* Header */
+.header{
+  background: linear-gradient(90deg, var(--un-blue), var(--escwa-blue));
+  color: #1747d7;
+  padding: 14px 22px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.header__logo{
+  width: 40px; height: 40px; border-radius: 8px;
+  background: rgba(255,255,255,.15);
+  display: grid; place-items: center; font-weight: 700;
+}
+.header__title{
+  font-size: 20px; font-weight: 700; letter-spacing: .2px;
+}
+.header__sub{
+  margin-left: auto; font-size: 13px; opacity: .9;
+  font-size: 20px; font-weight: 700; letter-spacing: .2px;
+}
+
+/* Layout */
+.main{
+  display: grid; grid-template-columns: 2.1fr 1fr;
+  gap: 14px; padding: 14px 16px; height: calc(100% - 68px);
+}
+
+/* Map */
+#map{
+  width: 100%; height: 100%;
+  border-radius: var(--radius-xl);
+  outline: 1px solid rgba(11,119,182,.15);
+  box-shadow: var(--shadow-sm);
+}
+/* Leaflet tweaks to match brand */
+.leaflet-container{
+  font: 12px/1.4 inherit;
+}
+.leaflet-control-zoom a{
+  background: #fff; color: var(--un-blue);
+  border-radius: 10px; border: 1px solid rgba(11,119,182,.2);
+}
+.leaflet-bar a:hover{ background: var(--sky); color:#073b59; }
+
+/* Sidebar panel */
+.sidebar{
+  display: flex; flex-direction: column; gap: 12px;
+  height: 100%;
+}
+.card{
+  background: var(--panel);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(11,119,182,.12);
+  padding: 14px;
+}
+.card__title{
+  font-weight: 700; font-size: 14px; margin-bottom: 8px;
+}
+
+/* AI Policy Insight banner */
+.insight{
+  padding: 12px 14px;
+  color: #540deb;
+  background: linear-gradient(90deg, var(--un-blue) 0%, var(--escwa-blue) 60%, var(--sky) 100%);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  display: flex; gap: 10px; align-items: center;
+}
+.insight__icon{
+  width: 28px; height: 28px; border-radius: 8px;
+  background: rgba(4, 110, 239, 0.2);
+  display: grid; place-items: center; font-weight: 800;
+}
+.insight__text{ font-weight: 600; letter-spacing: .2px; }
+
+/* Tabs for charts */
+.tabs{
+  display:flex; gap:8px; margin-bottom: 8px;
+}
+.tab{
+  background:#fff; color: var(--un-blue);
+  border:1px solid rgba(11,119,182,.25);
+  border-radius: 999px; padding: 6px 12px; font-weight: 600;
+  cursor: pointer; transition: .2s;
+}
+.tab:hover{ background: var(--sky); color:#073b59; }
+.tab.is-active{
+  background: var(--un-blue);
+  color:#fff; border-color: transparent;
+}
+
+/* Legend (choropleth) */
+.legend{
+  position: absolute; bottom: 16px; left: 16px;
+  background: #fff; padding: 10px 12px;
+  border-radius: 12px; box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(11,119,182,.18);
+  font-size: 12px; color: var(--ink);
+}
+.legend .scale{ display:grid; grid-template-columns: repeat(5, 18px); gap:4px; margin-top:6px; }
+.legend .swatch{ width:18px; height:12px; border-radius: 3px; }
+
+/* Tooltip (hover info) */
+.tooltip{
+  font-size: 12px; background:#fff; padding:8px 10px;
+  border-radius: 10px; box-shadow: var(--shadow-sm);
+  border:1px solid rgba(11,119,182,.18);
+}
+
+/* Buttons (export / share) */
+.btn{
+  background: #fff; color: var(--un-blue);
+  border:1px solid rgba(11,119,182,.3);
+  border-radius: 10px; padding: 8px 12px; font-weight: 600;
+  cursor:pointer; transition:.2s;
+}
+.btn:hover{ background: var(--escwa-blue); color:#fff; border-color: transparent; }
+
+/* Canvas sizing (Chart.js) */
+.chart{
+  width: 100%;
+  height: 280px;
+}
+
+/* Small helpers */
+.muted{ color: var(--muted); }
+.row{ display:flex; gap:10px; align-items:center; }
+
+/* Chart box： */
+.chart {
+  width: 100% !important;
+  height: 260px !important;    
+  max-height: 260px !important;
+  display: block;
+}
+
+
+@media (min-width: 1400px){
+  .chart{
+    height: 300px !important;
+    max-height: 300px !important;
+  }
+}
+
+
+.sidebar{
+  overflow-y: auto;
+}
+
+
+
+
+:root {
+  --header-h: 46px;
+         
+}
+
+
+.header {
+  position: fixed;            
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  z-index: 1000;
+  background: #f8fbff;       
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.main {
+  padding-top: calc(var(--header-h) + 12px); 
+  overflow: visible;                          
+}
+
+
+.sidebar {
+  position: sticky;
+  top: calc(var(--header-h) + 12px);
+  max-height: calc(100vh - var(--header-h) - 24px);
+  overflow: auto;            
+}
+
+.insight {
+  max-height: 140px;
+  overflow: auto;
+}
+
+.insight__text, #insight {
+  font-size: 11px;
+  line-height: 1;
+}
+
+
+.header .header__sub {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#year-select {
+  height: 32px;
+  border-radius: 10px;
+  padding: 4px 10px;
+}

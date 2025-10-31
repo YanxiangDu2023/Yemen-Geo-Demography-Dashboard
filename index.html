@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yemen Geo-Demography Dashboard</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <!-- <div class="header__logo">UN</div> -->
+    <div class="header__title">Yemen Geo-Demography Dashboard</div>
+    <div class="header__sub">ESCWA • Geo-Insights Lab</div>
+      <select id="year-select" style="
+      margin-left:auto;
+      padding:6px 10px;
+      border-radius:10px;
+      font-weight:500;
+      background:#f5f7fb;
+      border:1px solid #d0d6e0;
+      color:#2f3b52;">
+    <option value="2030">2030</option>
+    <option value="2025">2025</option>
+    <option value="2020">2020</option>
+    <option value="2015">2015</option>
+  </select>
+    
+  </header>
+
+  <main class="main">
+    <div id="map"></div>
+
+    <aside class="sidebar">
+      <div class="insight card">
+        <div class="insight__icon">🤖</div>
+        <div class="insight__text" id="insight">
+          Select a district to generate AI policy insight…
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tabs">
+          <button class="tab is-active" id="tab-pyr">Population Pyramid</button>
+          <button class="tab" id="tab-ts">Time Series</button>
+        </div>
+        <canvas id="pyramidChart" class="chart"></canvas>
+        <canvas id="timeseriesChart" class="chart" style="display:none"></canvas>
+      </div>
+
+      <div class="card row">
+        <button class="btn" id="btn-export">Export CSV</button>
+        <span class="muted">© WorldPop • HDX • OpenStreetMap</span>
+      </div>
+    </aside>
+
+    <div class="legend" id="legend" style="display:none">
+      <div><strong>Population Density</strong></div>
+      <div class="scale" id="legend-scale"></div>
+    </div>
+  </main>
+
+  <!-- Your JS at the end -->
+  <script src="script.js"></script>
+</body>
+</html>
